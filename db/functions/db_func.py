@@ -51,5 +51,3 @@ def update_referral(promo):
     cur.execute(query)
     conn.commit()
 
-
-set_up_database()
