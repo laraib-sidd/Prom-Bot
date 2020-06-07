@@ -63,7 +63,7 @@ async def profile_msg_handler(query: types.CallbackQuery):
     print("Hello i am in the my profile loop")
     user = types.User.get_current()
     user_list = db_func.search("user_id")
-    ind = user_list.index(user['id'])
+    ind = user_list.index(user['id']) - 1 
     await query.answer('You answered With My Profile')
     await dp.bot.send_message(
                             query.message.chat.id,
@@ -97,7 +97,7 @@ async def promo_msg_handler(query: types.CallbackQuery):
     # to get the index of the user if present in the database
     user = types.User.get_current()
     user_list = db_func.search("user_id")
-    ind = user_list.index(user['id'])
+    ind = user_list.index(user['id']) - 1
     await query.answer('You answered With My Promo Code')
     keyboard_markup = types.ReplyKeyboardMarkup(resize_keyboard=True,
                                                 selective=True,

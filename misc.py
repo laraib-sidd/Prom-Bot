@@ -5,7 +5,7 @@ from aiogram.contrib.middlewares.logging import LoggingMiddleware
 
 
 logging.basicConfig(level=logging.INFO)
-API_TOKEN = "Your api token"
+API_TOKEN = "1096218222:AAHEInH5f_IsmiIN0gzlul4__Wl0-5RbKwI"
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
