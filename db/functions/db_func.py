@@ -1,9 +1,9 @@
 import sqlite3
-
+import os
 
 # Setting up database
 def set_up_database():
-    conn = sqlite3.connect("../cab_data.sqlite")
+    conn = sqlite3.connect("cab_data.sqlite")
     cur = conn.cursor()
     cur.execute('''CREATE TABLE IF NOT EXISTS DATA(user_id INTEGER UNIQUE,
                 Name TEXT,Phone INTEGER,Age INTEGER,
@@ -15,7 +15,7 @@ def set_up_database():
 
 # Returns the list of various columns from the database.
 def search(key):
-    conn = sqlite3.connect("../cab_data.sqlite")
+    conn = sqlite3.connect("cab_data.sqlite")
     cur = conn.cursor()
     query = "SELECT " + key + " FROM DATA"
     cur.execute(query)
@@ -29,7 +29,7 @@ def search(key):
 
 
 def save_to_database(data):
-    conn = sqlite3.connect("../cab_data.sqlite")
+    conn = sqlite3.connect("cab_data.sqlite")
     cur = conn.cursor()
     cur.execute('''INSERT INTO DATA(user_id,Name,Phone,Age,City,Region,
     PromoCode,Referral, Referral_Points)VALUES ( ? ,?, ?, ?, ?, ?, ?, ?, ?)
@@ -44,10 +44,10 @@ def save_to_database(data):
 
 
 def update_referral(promo):
-    conn = sqlite3.connect("../cab_data.sqlite")
+    conn = sqlite3.connect("cab_data.sqlite")
     cur = conn.cursor()
     promo = str(promo)
     query = "UPDATE DATA SET Referral = Referral + 50, Referral_Points = Referral_Points + 1 WHERE user_id = " + promo
     cur.execute(query)
     conn.commit()
-
+    
